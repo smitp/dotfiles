@@ -1,0 +1,373 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+<C-R>	ftplugin/javascript/jslint.vim	/^noremap <buffer><silent> <C-R> <C-R>:JSLintUpdate<CR>$/;"	m
+<c-r><tab>	after/plugin/snipMate.vim	/^ino <silent> <c-r><tab> <c-r>=ShowAvailableSnips()<cr>$/;"	m
+<s-tab>	after/plugin/snipMate.vim	/^ino <silent> <s-tab> <c-r>=BackwardsSnippet()<cr>$/;"	m
+<tab>	after/plugin/snipMate.vim	/^ino <silent> <tab> <c-r>=TriggerSnippet()<cr>$/;"	m
+ActivateJSLintQuickFixWindow	ftplugin/javascript/jslint.vim	/^    function s:ActivateJSLintQuickFixWindow()$/;"	f
+AddBlockTag	bundle/vim-javascript/indent/html.vim	/^func! s:AddBlockTag(tag, id, ...) "{{{$/;"	f
+AddBlockTag	indent/html.vim	/^func! s:AddBlockTag(tag, id, ...) "{{{$/;"	f
+AddITags	bundle/vim-javascript/indent/html.vim	/^func! s:AddITags(taglist) "{{{$/;"	f
+AddITags	indent/html.vim	/^func! s:AddITags(taglist) "{{{$/;"	f
+Alien2	bundle/vim-javascript/indent/html.vim	/^func! s:Alien2() "{{{$/;"	f
+Alien2	indent/html.vim	/^func! s:Alien2() "{{{$/;"	f
+Alien3	bundle/vim-javascript/indent/html.vim	/^func! s:Alien3() "{{{$/;"	f
+Alien3	indent/html.vim	/^func! s:Alien3() "{{{$/;"	f
+Alien4	bundle/vim-javascript/indent/html.vim	/^func! s:Alien4() "{{{$/;"	f
+Alien4	indent/html.vim	/^func! s:Alien4() "{{{$/;"	f
+Alien5	bundle/vim-javascript/indent/html.vim	/^func! s:Alien5() "{{{$/;"	f
+Alien5	indent/html.vim	/^func! s:Alien5() "{{{$/;"	f
+Array	ftplugin/javascript/jslint/jslint-core.js	/^        Array.prototype.filter = function (f) {$/;"	c
+Array.filter	ftplugin/javascript/jslint/jslint-core.js	/^        Array.prototype.filter = function (f) {$/;"	m
+Array.forEach	ftplugin/javascript/jslint/jslint-core.js	/^        Array.prototype.forEach = function (f) {$/;"	m
+Array.isArray	ftplugin/javascript/jslint/jslint-core.js	/^        Array.isArray = function (o) {$/;"	f
+BackwardsSnippet	plugin/snipMate.vim	/^fun! BackwardsSnippet()$/;"	f
+Black	colors/mango.vim	/^    let Black = "ctermfg=238 ctermbg=NONE cterm=NONE"$/;"	v
+Black	colors/mango.vim	/^    let Black = "ctermfg=240 ctermbg=NONE cterm=NONE"$/;"	v
+Blocktag	bundle/vim-javascript/indent/html.vim	/^func! s:Blocktag(blocktag, ind) "{{{$/;"	f
+Blocktag	indent/html.vim	/^func! s:Blocktag(blocktag, ind) "{{{$/;"	f
+Blue	colors/mango.vim	/^  let Blue = "ctermfg=68 ctermbg=NONE cterm=NONE"$/;"	v
+BuildContextStack	autoload/omni/cpp/namespaces.vim	/^function! s:BuildContextStack(namespaces, szCurrentScope)$/;"	f
+BuildTabStops	autoload/snipMate.vim	/^fun s:BuildTabStops(snip, lnum, col, indent)$/;"	f
+CSSIndent	bundle/vim-javascript/indent/html.vim	/^func! s:CSSIndent() "{{{$/;"	f
+CSSIndent	indent/html.vim	/^func! s:CSSIndent() "{{{$/;"	f
+CanUseOmnicompletion	autoload/omni/cpp/maycomplete.vim	/^function! s:CanUseOmnicompletion()$/;"	f
+CheckTag	bundle/vim-javascript/indent/html.vim	/^func! s:CheckTag(itag) "{{{$/;"	f
+CheckTag	indent/html.vim	/^func! s:CheckTag(itag) "{{{$/;"	f
+ChooseSnippet	plugin/snipMate.vim	/^fun s:ChooseSnippet(scope, trigger)$/;"	f
+Close	ftplugin/html_snip_helper.vim	/^fun! Close()$/;"	f
+Count	autoload/snipMate.vim	/^fun s:Count(haystack, needle)$/;"	f
+CountITags	bundle/vim-javascript/indent/html.vim	/^func! s:CountITags(...) "{{{$/;"	f
+CountITags	indent/html.vim	/^func! s:CountITags(...) "{{{$/;"	f
+DefineSnips	plugin/snipMate.vim	/^fun s:DefineSnips(dir, aliasft, realft)$/;"	f
+DisplayIncludeTree	autoload/omni/cpp/includes.vim	/^function! s:DisplayIncludeTree(szFilePath, indent, ...)$/;"	f
+ExitingOneLineScope	bundle/vim-javascript/indent/javascript.vim	/^function s:ExitingOneLineScope(lnum)$/;"	f
+ExtendTagItemToPopupItem	autoload/omni/cpp/complete.vim	/^function! s:ExtendTagItemToPopupItem(tagItem, szTypeName)$/;"	f
+ExtractScopeFromTypeInfo	autoload/omni/cpp/utils.vim	/^function! s:ExtractScopeFromTypeInfo(szTypeInfo)$/;"	f
+ExtractSnips	plugin/snipMate.vim	/^fun! ExtractSnips(dir, ft)$/;"	f
+ExtractSnipsFile	plugin/snipMate.vim	/^fun! ExtractSnipsFile(file, ft)$/;"	f
+ExtractTypeInfoFromDecl	autoload/omni/cpp/items.vim	/^function! s:ExtractTypeInfoFromDecl(tokens)$/;"	f
+F	ftplugin/javascript/jslint/jslint-core.js	/^            F.prototype = o;$/;"	c
+F	ftplugin/javascript/jslint/jslint-core.js	/^    function F() {}     \/\/ Used by Object.create$/;"	f
+Filename	autoload/snipMate.vim	/^fun! Filename(...)$/;"	f
+FilterClassMembers	autoload/omni/cpp/complete.vim	/^function! s:FilterClassMembers(tagPopupList, szAccessFilter)$/;"	f
+FilterClassScopeMembers	autoload/omni/cpp/complete.vim	/^function! s:FilterClassScopeMembers(tagPopupList, szAccessFilter)$/;"	f
+FilterNamespaceScopeMembers	autoload/omni/cpp/complete.vim	/^function! s:FilterNamespaceScopeMembers(tagPopupList)$/;"	f
+FilterOverloadedFunctions	autoload/omni/cpp/complete.vim	/^function! s:FilterOverloadedFunctions(tagPopupList)$/;"	f
+FilterStaticClassMembers	autoload/omni/cpp/complete.vim	/^function! s:FilterStaticClassMembers(tagPopupList, szAccessFilter)$/;"	f
+FindStartPositionOfCompletion	autoload/omni/cpp/complete.vim	/^function! s:FindStartPositionOfCompletion()$/;"	f
+Findcomplete	autoload/pathogen.vim	/^function! s:Findcomplete(A,L,P) " {{{1$/;"	f
+FreshState	bundle/vim-javascript/indent/html.vim	/^func! s:FreshState(lnum) "{{{$/;"	f
+FreshState	indent/html.vim	/^func! s:FreshState(lnum) "{{{$/;"	f
+GetAccessFilter	autoload/omni/cpp/complete.vim	/^function! s:GetAccessFilter(szFilter, szAccessFilter)$/;"	f
+GetAllUsingNamespaceMapFromCurrentBuffer	autoload/omni/cpp/namespaces.vim	/^function! s:GetAllUsingNamespaceMapFromCurrentBuffer(...)$/;"	f
+GetAllUsingNamespaceMapFromFile	autoload/omni/cpp/namespaces.vim	/^function! s:GetAllUsingNamespaceMapFromFile(szFilePath, ...)$/;"	f
+GetClassScopeAtCursor	autoload/omni/cpp/namespaces.vim	/^function! s:GetClassScopeAtCursor()$/;"	f
+GetIncludeListFromCurrentBuffer	autoload/omni/cpp/includes.vim	/^function! s:GetIncludeListFromCurrentBuffer()$/;"	f
+GetIncludeListFromFile	autoload/omni/cpp/includes.vim	/^function! s:GetIncludeListFromFile(szFilePath, bUpdate) $/;"	f
+GetJSLintMessage	ftplugin/javascript/jslint.vim	/^  function s:GetJSLintMessage()$/;"	f
+GetJavascriptIndent	bundle/vim-javascript/indent/javascript.vim	/^function GetJavascriptIndent()$/;"	f
+GetMSL	bundle/vim-javascript/indent/javascript.vim	/^function s:GetMSL(lnum, in_one_line_scope)$/;"	f
+GetNamespaceAliasListFromLine	autoload/omni/cpp/namespaces.vim	/^function! s:GetNamespaceAliasListFromLine(szLine)$/;"	f
+GetNamespaceAliasMap	autoload/omni/cpp/namespaces.vim	/^function! s:GetNamespaceAliasMap()$/;"	f
+GetNamespaceListFromLine	autoload/omni/cpp/namespaces.vim	/^function! s:GetNamespaceListFromLine(szLine)$/;"	f
+GetQuickFixStackCount	ftplugin/javascript/jslint.vim	/^    function s:GetQuickFixStackCount()$/;"	f
+GetScriptType	bundle/vim-javascript/indent/html.vim	/^func! s:GetScriptType(str) "{{{$/;"	f
+GetScriptType	indent/html.vim	/^func! s:GetScriptType(str) "{{{$/;"	f
+GetSnippet	plugin/snipMate.vim	/^fun s:GetSnippet(word, scope)$/;"	f
+GetSnippets	plugin/snipMate.vim	/^fun! GetSnippets(dir, filetypes)$/;"	f
+GetStopPositionForLocalSearch	autoload/omni/cpp/namespaces.vim	/^function! s:GetStopPositionForLocalSearch()$/;"	f
+GetSymbol	autoload/omni/cpp/items.vim	/^function! s:GetSymbol(tokens)$/;"	f
+GetTagOfSameScope	autoload/omni/cpp/utils.vim	/^function! s:GetTagOfSameScope(listTags, szScopeToMatch)$/;"	f
+GetTypeInfoOfReturnedType	autoload/omni/cpp/items.vim	/^function! s:GetTypeInfoOfReturnedType(contextStack, szFunctionName)$/;"	f
+GetTypeInfoOfVariable	autoload/omni/cpp/items.vim	/^function! s:GetTypeInfoOfVariable(contextStack, szVariable, bSearchDecl)$/;"	f
+GetUsingNamespaceListFromMap	autoload/omni/cpp/namespaces.vim	/^function! s:GetUsingNamespaceListFromMap(namespaceMap, ...)$/;"	f
+Gray	colors/mango.vim	/^  let Gray = "ctermfg=250 ctermbg=NONE cterm=NONE"$/;"	v
+Green	colors/mango.vim	/^  let Green = "ctermfg=107 ctermbg=NONE cterm=NONE"$/;"	v
+HasATagFileOrTagEnvChanged	autoload/omni/cpp/complete.vim	/^function! s:HasATagFileOrTagEnvChanged()$/;"	f
+HasTagEnvChanged	autoload/omni/cpp/complete.vim	/^function! s:HasTagEnvChanged()$/;"	f
+Helptags	autoload/pathogen.vim	/^command! -bar Helptags :call pathogen#helptags()$/;"	c
+HiLink	bundle/vim-javascript/syntax/javascript.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
+HiLink	bundle/vim-javascript/syntax/javascript.vim	/^    command -nargs=+ HiLink hi link <args>$/;"	c
+HtmlIndent	bundle/vim-javascript/indent/html.vim	/^func! HtmlIndent() "{{{$/;"	f
+HtmlIndent	indent/html.vim	/^func! HtmlIndent() "{{{$/;"	f
+HtmlIndent_CheckUserSettings	bundle/vim-javascript/indent/html.vim	/^func! HtmlIndent_CheckUserSettings() "{{{$/;"	f
+HtmlIndent_CheckUserSettings	indent/html.vim	/^func! HtmlIndent_CheckUserSettings() "{{{$/;"	f
+InOneLineScope	bundle/vim-javascript/indent/javascript.vim	/^function s:InOneLineScope(lnum)$/;"	f
+IndHtmlLocal	bundle/vim-javascript/indent/html.vim	/^com! -nargs=* IndHtmlLocal <args>$/;"	c
+IndHtmlLocal	indent/html.vim	/^com! -nargs=* IndHtmlLocal <args>$/;"	c
+IndentWithContinuation	bundle/vim-javascript/indent/javascript.vim	/^function s:IndentWithContinuation(lnum, ind, width)$/;"	f
+InitComplete	autoload/omni/cpp/complete.vim	/^function! s:InitComplete()$/;"	f
+IsCached	autoload/omni/cpp/complete.vim	/^function! s:IsCached(cache, szKey1, szKey2)$/;"	f
+IsInMultilineComment	bundle/vim-javascript/indent/javascript.vim	/^function s:IsInMultilineComment(lnum, col)$/;"	f
+IsInString	bundle/vim-javascript/indent/javascript.vim	/^function s:IsInString(lnum, col)$/;"	f
+IsInStringOrComment	bundle/vim-javascript/indent/javascript.vim	/^function s:IsInStringOrComment(lnum, col)$/;"	f
+IsTypeInfoResolved	autoload/omni/cpp/utils.vim	/^function! s:IsTypeInfoResolved(szTypeInfo)$/;"	f
+IsUnnamedType	autoload/omni/cpp/items.vim	/^function! s:IsUnnamedType(tagItem)$/;"	f
+JSLint	ftplugin/javascript/jslint.vim	/^function! s:JSLint()$/;"	f
+JSLintClear	ftplugin/javascript/jslint.vim	/^function! s:JSLintClear()$/;"	f
+JSLintToggle	ftplugin/javascript/jslint.vim	/^  command JSLintToggle :let b:jslint_disabled = exists('b:jslint_disabled') ? b:jslint_disabled ? 0 : 1 : 1$/;"	c
+JSLintUpdate	ftplugin/javascript/jslint.vim	/^  command JSLintUpdate :call s:JSLintUpdate()$/;"	c
+JSLintUpdate	ftplugin/javascript/jslint.vim	/^  function s:JSLintUpdate()$/;"	f
+LineHasOpeningBrackets	bundle/vim-javascript/indent/javascript.vim	/^function s:LineHasOpeningBrackets(lnum)$/;"	f
+LocalSearchDecl	autoload/omni/cpp/items.vim	/^function! s:LocalSearchDecl(name)$/;"	f
+MakeSnip	plugin/snipMate.vim	/^fun! MakeSnip(scope, trigger, content, ...)$/;"	f
+Match	bundle/vim-javascript/indent/javascript.vim	/^function s:Match(lnum, regex)$/;"	f
+Object.create	ftplugin/javascript/jslint/jslint-core.js	/^        Object.create = function (o) {$/;"	f
+Object.keys	ftplugin/javascript/jslint/jslint-core.js	/^        Object.keys = function (o) {$/;"	f
+Orange	colors/mango.vim	/^    let Orange = "ctermfg=202 ctermbg=NONE cterm=NONE"$/;"	v
+Orange	colors/mango.vim	/^    let Orange = "ctermfg=214 ctermbg=NONE cterm=NONE"$/;"	v
+Peach	colors/mango.vim	/^    let Peach = "ctermfg=209 ctermbg=NONE cterm=NONE"$/;"	v
+Peach	colors/mango.vim	/^    let Peach = "ctermfg=222 ctermbg=NONE cterm=NONE"$/;"	v
+Pink	colors/mango.vim	/^  let Pink = "ctermfg=205 ctermbg=NONE cterm=NONE"$/;"	v
+Pink2	colors/mango.vim	/^  let Pink2 = "ctermfg=211 ctermbg=NONE cterm=NONE"$/;"	v
+PrevNonBlankNonString	bundle/vim-javascript/indent/javascript.vim	/^function s:PrevNonBlankNonString(lnum)$/;"	f
+ProcessFile	plugin/snipMate.vim	/^fun s:ProcessFile(file, ft, ...)$/;"	f
+ProcessSnippet	autoload/snipMate.vim	/^fun s:ProcessSnippet(snip)$/;"	f
+Purple	colors/mango.vim	/^    let Purple = "ctermfg=141 ctermbg=NONE cterm=NONE"$/;"	v
+Purple	colors/mango.vim	/^    let Purple = "ctermfg=153 ctermbg=NONE cterm=NONE"$/;"	v
+Purple2	colors/mango.vim	/^  let Purple2 = "ctermfg=164 ctermbg=NONE cterm=NONE"$/;"	v
+Red	colors/mango.vim	/^    let Red = "ctermfg=196 ctermbg=NONE cterm=NONE"$/;"	v
+Red	colors/mango.vim	/^    let Red = "ctermfg=203 ctermbg=NONE cterm=NONE"$/;"	v
+RemoveCComments	autoload/omni/cpp/utils.vim	/^function! s:RemoveCComments(szLine)$/;"	f
+RemoveITags	bundle/vim-javascript/indent/html.vim	/^func! s:RemoveITags(taglist) "{{{$/;"	f
+RemoveITags	indent/html.vim	/^func! s:RemoveITags(taglist) "{{{$/;"	f
+RemoveSnippet	autoload/snipMate.vim	/^fun s:RemoveSnippet()$/;"	f
+ResetSnippets	plugin/snipMate.vim	/^fun! ResetSnippets()$/;"	f
+ResolveAliasInNamespaceList	autoload/omni/cpp/namespaces.vim	/^function! s:ResolveAliasInNamespaceList(mapNamespaceAlias, listNamespaces)$/;"	f
+ResolveAliasKey	autoload/omni/cpp/namespaces.vim	/^function! s:ResolveAliasKey(mapNamespaceAlias, szAlias)$/;"	f
+ResolveAliasKeys	autoload/omni/cpp/namespaces.vim	/^function! s:ResolveAliasKeys(mapNamespaceAlias)$/;"	f
+ResolveCCast	autoload/omni/cpp/items.vim	/^function! s:ResolveCCast(tokens)$/;"	f
+ResolveCast	autoload/omni/cpp/items.vim	/^function! s:ResolveCast(tokens, startChar, endChar)$/;"	f
+ResolveCppCast	autoload/omni/cpp/items.vim	/^function! s:ResolveCppCast(tokens)$/;"	f
+ResolveNamespace	autoload/omni/cpp/namespaces.vim	/^function! s:ResolveNamespace(namespace, mapCurrentContexts)$/;"	f
+ResolveSymbol	autoload/omni/cpp/items.vim	/^function! s:ResolveSymbol(contextStack, szSymbol, szTagFilter)$/;"	f
+SearchDecl	autoload/omni/cpp/items.vim	/^function! s:SearchDecl(szVariable)$/;"	f
+SearchGlobalMembers	autoload/omni/cpp/complete.vim	/^function! s:SearchGlobalMembers(szBase)$/;"	f
+SearchMembers	autoload/omni/cpp/complete.vim	/^function! s:SearchMembers(resolvedTagItem, szBase)$/;"	f
+SearchTypeInfoOfDecl	autoload/omni/cpp/items.vim	/^function! s:SearchTypeInfoOfDecl(szVariable)$/;"	f
+SelectWord	autoload/snipMate.vim	/^fun s:SelectWord()$/;"	f
+ShowAvailableSnips	plugin/snipMate.vim	/^fun! ShowAvailableSnips()$/;"	f
+Silver	colors/mango.vim	/^  let Silver = "ctermfg=245 ctermbg=NONE cterm=NONE"$/;"	v
+String	ftplugin/javascript/jslint/jslint-core.js	/^        String.prototype.entityify = function () {$/;"	c
+String.entityify	ftplugin/javascript/jslint/jslint-core.js	/^        String.prototype.entityify = function () {$/;"	m
+String.isAlpha	ftplugin/javascript/jslint/jslint-core.js	/^        String.prototype.isAlpha = function () {$/;"	m
+String.isDigit	ftplugin/javascript/jslint/jslint-core.js	/^        String.prototype.isDigit = function () {$/;"	m
+String.supplant	ftplugin/javascript/jslint/jslint-core.js	/^        String.prototype.supplant = function (o) {$/;"	m
+TagPopupList	autoload/omni/cpp/complete.vim	/^function! s:TagPopupList(szTypeName, szBase)$/;"	f
+TokensToString	autoload/omni/cpp/items.vim	/^function! s:TokensToString(tokens)$/;"	f
+TriggerSnippet	plugin/snipMate.vim	/^fun! TriggerSnippet()$/;"	f
+UpdateChangedSnip	autoload/snipMate.vim	/^fun s:UpdateChangedSnip(entering)$/;"	f
+UpdatePlaceholderTabStops	autoload/snipMate.vim	/^fun s:UpdatePlaceholderTabStops()$/;"	f
+UpdateTabStops	autoload/snipMate.vim	/^fun s:UpdateTabStops()$/;"	f
+UpdateVars	autoload/snipMate.vim	/^fun s:UpdateVars()$/;"	f
+Ve	autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Ve       :execute s:find(<count>,'edit<bang>',<q-args>,0)$/;"	c
+Vedit	autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vedit    :execute s:find(<count>,'edit<bang>',<q-args>,0)$/;"	c
+Vopen	autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vopen    :execute s:find(<count>,'edit<bang>',<q-args>,1)$/;"	c
+Vpedit	autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vpedit   :execute s:find(<count>,'pedit',<q-args>,<bang>1)$/;"	c
+Vread	autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vread    :execute s:find(<count>,'read',<q-args>,<bang>1)$/;"	c
+Vsplit	autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vsplit   :execute s:find(<count>,'split',<q-args>,<bang>1)$/;"	c
+Vtabedit	autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vtabedit :execute s:find(<count>,'tabedit',<q-args>,<bang>1)$/;"	c
+Vvsplit	autoload/pathogen.vim	/^command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vvsplit  :execute s:find(<count>,'vsplit',<q-args>,<bang>1)$/;"	c
+White	colors/mango.vim	/^  let White = "ctermfg=255 ctermbg=NONE cterm=NONE"$/;"	v
+WideMsg	ftplugin/javascript/jslint.vim	/^  function s:WideMsg(msg)$/;"	f
+add_to_predefined	ftplugin/javascript/jslint/jslint-core.js	/^    function add_to_predefined(group) {$/;"	f
+aint	ftplugin/javascript/jslint/jslint-core.js	/^    function aint(it, name, expected) {$/;"	f
+artifact	ftplugin/javascript/jslint/jslint-core.js	/^    function artifact(tok) {$/;"	f
+assume	ftplugin/javascript/jslint/jslint-core.js	/^    function assume() {$/;"	f
+b:current_syntax	bundle/vim-javascript/syntax/javascript.vim	/^let b:current_syntax = "javascript"$/;"	v
+b:did_indent	bundle/vim-javascript/indent/html.vim	/^let b:did_indent = 1$/;"	v
+b:did_indent	bundle/vim-javascript/indent/javascript.vim	/^let b:did_indent = 1$/;"	v
+b:did_indent	indent/html.vim	/^let b:did_indent = 1$/;"	v
+b:did_jslint_plugin	ftplugin/javascript/jslint.vim	/^  let b:did_jslint_plugin = 1$/;"	v
+b:indent	bundle/vim-javascript/indent/html.vim	/^let b:indent = {"lnum": -1}$/;"	v
+b:indent	indent/html.vim	/^let b:indent = {"lnum": -1}$/;"	v
+b:javascript_fold	bundle/vim-javascript/syntax/javascript.vim	/^let b:javascript_fold='true'$/;"	v
+b:showing_message	ftplugin/javascript/jslint.vim	/^let b:showing_message = 0$/;"	v
+b:undo_indent	bundle/vim-javascript/indent/html.vim	/^let b:undo_indent = "set inde< indk<| unlet b:indent"$/;"	v
+b:undo_indent	indent/html.vim	/^let b:undo_indent = "set inde< indk<| unlet b:indent"$/;"	v
+bgcolor	colors/mango.vim	/^  let bgcolor = &background$/;"	v
+css_countbraces	bundle/vim-javascript/indent/html.vim	/^func! s:css_countbraces(lnum, count_open) "{{{$/;"	f
+css_countbraces	indent/html.vim	/^func! s:css_countbraces(lnum, count_open) "{{{$/;"	f
+css_prevnoncomment	bundle/vim-javascript/indent/html.vim	/^func! s:css_prevnoncomment(lnum, stopline) "{{{$/;"	f
+css_prevnoncomment	indent/html.vim	/^func! s:css_prevnoncomment(lnum, stopline) "{{{$/;"	f
+dd	ftplugin/javascript/jslint.vim	/^noremap <buffer><silent> dd dd:JSLintUpdate<CR>$/;"	m
+did_javascript_syn_inits	bundle/vim-javascript/syntax/javascript.vim	/^    let did_javascript_syn_inits = 1$/;"	v
+dw	ftplugin/javascript/jslint.vim	/^noremap <buffer><silent> dw dw:JSLintUpdate<CR>$/;"	m
+expected_at	ftplugin/javascript/jslint/jslint-core.js	/^    function expected_at(at) {$/;"	f
+find	autoload/pathogen.vim	/^function! s:find(count,cmd,file,lcd) " {{{1$/;"	f
+fs	ftplugin/javascript/jslint/runjslint.js	/^var fs, vm, sandbox, jslintCore = 'jslint-core.js';$/;"	v
+g:JSLintHighlightErrorLine	ftplugin/javascript/jslint.vim	/^  let g:JSLintHighlightErrorLine = 1$/;"	v
+g:colors_name	colors/mango.vim	/^  let g:colors_name = "mango"$/;"	v
+g:did_ft	plugin/snipMate.vim	/^let g:did_ft = {}$/;"	v
+g:loaded_pathogen	autoload/pathogen.vim	/^let g:loaded_pathogen = 1$/;"	v
+g:omni#cpp#includes#CACHE_FILE_TIME	autoload/omni/cpp/includes.vim	/^let g:omni#cpp#includes#CACHE_FILE_TIME = {}$/;"	v
+g:omni#cpp#includes#CACHE_INCLUDES	autoload/omni/cpp/includes.vim	/^let g:omni#cpp#includes#CACHE_INCLUDES = {}$/;"	v
+g:omni#cpp#namespaces#CacheResolve	autoload/omni/cpp/namespaces.vim	/^let g:omni#cpp#namespaces#CacheResolve = {}$/;"	v
+g:omni#cpp#namespaces#CacheUsing	autoload/omni/cpp/namespaces.vim	/^let g:omni#cpp#namespaces#CacheUsing = {}$/;"	v
+g:omni#cpp#utils#CACHE_TAG_INHERITS	autoload/omni/cpp/utils.vim	/^let g:omni#cpp#utils#CACHE_TAG_INHERITS = {}$/;"	v
+g:omni#cpp#utils#szFilterGlobalScope	autoload/omni/cpp/utils.vim	/^let g:omni#cpp#utils#szFilterGlobalScope .= "&& (!has_key(v:val, 'enum') || (has_key(v:val, 'enum') && v:val.enum =~ '^\\\\w\\\\+$')))"$/;"	v
+g:omni#cpp#utils#szFilterGlobalScope	autoload/omni/cpp/utils.vim	/^let g:omni#cpp#utils#szFilterGlobalScope = "(!has_key(v:val, 'class') && !has_key(v:val, 'struct') && !has_key(v:val, 'union') && !has_key(v:val, 'namespace')"$/;"	v
+html	ftplugin/javascript/jslint/jslint-core.js	/^            html: hx,$/;"	p
+loaded_snips	plugin/snipMate.vim	/^let loaded_snips = 1$/;"	v
+main_syntax	bundle/vim-javascript/syntax/javascript.vim	/^  let main_syntax = 'javascript'$/;"	v
+omni#common#debug#End	autoload/omni/common/debug.vim	/^function! omni#common#debug#End()$/;"	f
+omni#common#debug#Start	autoload/omni/common/debug.vim	/^function! omni#common#debug#Start()$/;"	f
+omni#common#debug#Trace	autoload/omni/common/debug.vim	/^function! omni#common#debug#Trace(szFuncName, ...)$/;"	f
+omni#common#utils#CompareNumber	autoload/omni/common/utils.vim	/^function! omni#common#utils#CompareNumber(i1, i2)$/;"	f
+omni#common#utils#GetWordUnderCursor	autoload/omni/common/utils.vim	/^function! omni#common#utils#GetWordUnderCursor()$/;"	f
+omni#common#utils#TagList	autoload/omni/common/utils.vim	/^function! omni#common#utils#TagList(szTagQuery)$/;"	f
+omni#common#utils#TagListNoThrow	autoload/omni/common/utils.vim	/^function! omni#common#utils#TagListNoThrow(szTagQuery)$/;"	f
+omni#cpp#complete#Init	autoload/omni/cpp/complete.vim	/^function! omni#cpp#complete#Init()$/;"	f
+omni#cpp#complete#Main	autoload/omni/cpp/complete.vim	/^function! omni#cpp#complete#Main(findstart, base)$/;"	f
+omni#cpp#includes#Display	autoload/omni/cpp/includes.vim	/^function! omni#cpp#includes#Display()$/;"	f
+omni#cpp#includes#GetList	autoload/omni/cpp/includes.vim	/^function! omni#cpp#includes#GetList(...)$/;"	f
+omni#cpp#items#Get	autoload/omni/cpp/items.vim	/^function! omni#cpp#items#Get(tokens, ...)$/;"	f
+omni#cpp#items#ResolveItemsTypeInfo	autoload/omni/cpp/items.vim	/^function! omni#cpp#items#ResolveItemsTypeInfo(contextStack, items)$/;"	f
+omni#cpp#maycomplete#Arrow	autoload/omni/cpp/maycomplete.vim	/^function! omni#cpp#maycomplete#Arrow()$/;"	f
+omni#cpp#maycomplete#Complete	autoload/omni/cpp/maycomplete.vim	/^function! omni#cpp#maycomplete#Complete()$/;"	f
+omni#cpp#maycomplete#Dot	autoload/omni/cpp/maycomplete.vim	/^function! omni#cpp#maycomplete#Dot()$/;"	f
+omni#cpp#maycomplete#Scope	autoload/omni/cpp/maycomplete.vim	/^function! omni#cpp#maycomplete#Scope()$/;"	f
+omni#cpp#namespaces#GetContexts	autoload/omni/cpp/namespaces.vim	/^function! omni#cpp#namespaces#GetContexts()$/;"	f
+omni#cpp#namespaces#GetListFromCurrentBuffer	autoload/omni/cpp/namespaces.vim	/^function! omni#cpp#namespaces#GetListFromCurrentBuffer(...)$/;"	f
+omni#cpp#namespaces#GetMapFromBuffer	autoload/omni/cpp/namespaces.vim	/^function! omni#cpp#namespaces#GetMapFromBuffer(szFilePath, ...)$/;"	f
+omni#cpp#namespaces#GetMapFromCurrentBuffer	autoload/omni/cpp/namespaces.vim	/^function! omni#cpp#namespaces#GetMapFromCurrentBuffer()$/;"	f
+omni#cpp#namespaces#GetUsingNamespaces	autoload/omni/cpp/namespaces.vim	/^function! omni#cpp#namespaces#GetUsingNamespaces()$/;"	f
+omni#cpp#namespaces#ResolveAlias	autoload/omni/cpp/namespaces.vim	/^function! omni#cpp#namespaces#ResolveAlias(mapNamespaceAlias, szNamespace)$/;"	f
+omni#cpp#namespaces#ResolveAll	autoload/omni/cpp/namespaces.vim	/^function! omni#cpp#namespaces#ResolveAll(namespacesUsed)$/;"	f
+omni#cpp#settings#Init	autoload/omni/cpp/settings.vim	/^function! omni#cpp#settings#Init()$/;"	f
+omni#cpp#tokenizer#Tokenize	autoload/omni/cpp/tokenizer.vim	/^function! omni#cpp#tokenizer#Tokenize(szCode)$/;"	f
+omni#cpp#utils#BuildParenthesisGroups	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#BuildParenthesisGroups(tokens)$/;"	f
+omni#cpp#utils#CreateTypeInfo	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#CreateTypeInfo(param)$/;"	f
+omni#cpp#utils#ExtractCmdFromTagItem	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#ExtractCmdFromTagItem(tagItem)$/;"	f
+omni#cpp#utils#ExtractScope	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#ExtractScope(tagItem)$/;"	f
+omni#cpp#utils#ExtractTypeInfoFromTag	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#ExtractTypeInfoFromTag(tagItem)$/;"	f
+omni#cpp#utils#ExtractTypeInfoFromTokens	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#ExtractTypeInfoFromTokens(tokens)$/;"	f
+omni#cpp#utils#GetCastType	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#GetCastType(tokens)$/;"	f
+omni#cpp#utils#GetClassInheritanceList	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#GetClassInheritanceList(namespaces, typeInfo)$/;"	f
+omni#cpp#utils#GetCode	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#GetCode(posStart, posEnd)$/;"	f
+omni#cpp#utils#GetCodeFromLine	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#GetCodeFromLine(szSingleLine)$/;"	f
+omni#cpp#utils#GetPreviewWindowStringFromTagItem	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#GetPreviewWindowStringFromTagItem(tagItem)$/;"	f
+omni#cpp#utils#GetResolvedTagItem	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#GetResolvedTagItem(namespaces, typeInfo)$/;"	f
+omni#cpp#utils#GetResolvedTags	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#GetResolvedTags(namespaces, typeInfo)$/;"	f
+omni#cpp#utils#GetTypeInfoString	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#GetTypeInfoString(typeInfo)$/;"	f
+omni#cpp#utils#IsCursorInCommentOrString	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#IsCursorInCommentOrString()$/;"	f
+omni#cpp#utils#IsTypeInfoValid	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#IsTypeInfoValid(typeInfo)$/;"	f
+omni#cpp#utils#ResolveFilePath	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#ResolveFilePath(szFile)$/;"	f
+omni#cpp#utils#SimplifyParenthesis	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#SimplifyParenthesis(tokens)$/;"	f
+omni#cpp#utils#SimplifyScope	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#SimplifyScope(szScope)$/;"	f
+omni#cpp#utils#TokenizeCurrentInstruction	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#TokenizeCurrentInstruction(...)$/;"	f
+omni#cpp#utils#TokenizeCurrentInstructionUntilWord	autoload/omni/cpp/utils.vim	/^function! omni#cpp#utils#TokenizeCurrentInstructionUntilWord()$/;"	f
+omni#cpp#utils#expIgnoreComments	autoload/omni/cpp/utils.vim	/^let omni#cpp#utils#expIgnoreComments = 'getline(".") =~ g:omni#cpp#utils#reIgnoreComment'$/;"	v
+omni#cpp#utils#reIgnoreComment	autoload/omni/cpp/utils.vim	/^let omni#cpp#utils#reIgnoreComment = escape('\\\/\\\/\\|\\\/\\*\\|\\*\\\/', '*\/\\')$/;"	v
+omni#cpp#utils#szEscapedCharacters	autoload/omni/cpp/utils.vim	/^let omni#cpp#utils#szEscapedCharacters = ' %#'$/;"	v
+outer	ftplugin/javascript/jslint/jslint-core.js	/^            outer: hx,$/;"	p
+pathogen#cycle_filetype	autoload/pathogen.vim	/^function! pathogen#cycle_filetype() " {{{1$/;"	f
+pathogen#fnameescape	autoload/pathogen.vim	/^function! pathogen#fnameescape(string) " {{{1$/;"	f
+pathogen#glob	autoload/pathogen.vim	/^function! pathogen#glob(pattern) abort " {{{1$/;"	f
+pathogen#glob_directories	autoload/pathogen.vim	/^function! pathogen#glob_directories(pattern) abort " {{{1$/;"	f
+pathogen#helptags	autoload/pathogen.vim	/^function! pathogen#helptags() " {{{1$/;"	f
+pathogen#infect	autoload/pathogen.vim	/^function! pathogen#infect(...) abort " {{{1$/;"	f
+pathogen#is_disabled	autoload/pathogen.vim	/^function! pathogen#is_disabled(path) " {{{1$/;"	f
+pathogen#join	autoload/pathogen.vim	/^function! pathogen#join(...) abort " {{{1$/;"	f
+pathogen#legacyjoin	autoload/pathogen.vim	/^function! pathogen#legacyjoin(...) abort " {{{1$/;"	f
+pathogen#runtime_append_all_bundles	autoload/pathogen.vim	/^function! pathogen#runtime_append_all_bundles(...) " {{{1$/;"	f
+pathogen#runtime_findfile	autoload/pathogen.vim	/^function! pathogen#runtime_findfile(file,count) "{{{1$/;"	f
+pathogen#runtime_prepend_subdirectories	autoload/pathogen.vim	/^function! pathogen#runtime_prepend_subdirectories(path) " {{{1$/;"	f
+pathogen#separator	autoload/pathogen.vim	/^function! pathogen#separator() abort " {{{1$/;"	f
+pathogen#split	autoload/pathogen.vim	/^function! pathogen#split(path) abort " {{{1$/;"	f
+pathogen#uniq	autoload/pathogen.vim	/^function! pathogen#uniq(list) abort " {{{1$/;"	f
+quit	ftplugin/javascript/jslint/jslint-core.js	/^    function quit(message, line, character) {$/;"	f
+return	ftplugin/javascript/jslint/jslint-core.js	/^            return Object.prototype.toString.apply(o) === '[object Array]';$/;"	c
+return.toString	ftplugin/javascript/jslint/jslint-core.js	/^            return Object.prototype.toString.apply(o) === '[object Array]';$/;"	m
+s:CACHE_DEBUG_TRACE	autoload/omni/common/debug.vim	/^let s:CACHE_DEBUG_TRACE = []$/;"	v
+s:CACHE_OVERLOADED_FUNCTIONS	autoload/omni/cpp/complete.vim	/^let s:CACHE_OVERLOADED_FUNCTIONS = {}$/;"	v
+s:CACHE_TAG_ENV	autoload/omni/cpp/complete.vim	/^let s:CACHE_TAG_ENV = ''$/;"	v
+s:CACHE_TAG_FILES	autoload/omni/cpp/complete.vim	/^let s:CACHE_TAG_FILES = {}$/;"	v
+s:CACHE_TAG_POPUP_ITEMS	autoload/omni/cpp/complete.vim	/^let s:CACHE_TAG_POPUP_ITEMS = {}$/;"	v
+s:OmniCpp_ShowAccess	autoload/omni/cpp/complete.vim	/^let s:OmniCpp_ShowAccess = g:OmniCpp_ShowAccess$/;"	v
+s:OmniCpp_ShowPrototypeInAbbr	autoload/omni/cpp/complete.vim	/^let s:OmniCpp_ShowPrototypeInAbbr = g:OmniCpp_ShowPrototypeInAbbr$/;"	v
+s:OmniCpp_ShowScopeInAbbr	autoload/omni/cpp/complete.vim	/^let s:OmniCpp_ShowScopeInAbbr = g:OmniCpp_ShowScopeInAbbr$/;"	v
+s:bMayComplete	autoload/omni/cpp/complete.vim	/^let s:bMayComplete = 0$/;"	v
+s:block_regex	bundle/vim-javascript/indent/javascript.vim	/^let s:block_regex = '\\%({\\)\\s*\\%(|\\%([*@]\\=\\h\\w*,\\=\\s*\\)\\%(,\\s*[*@]\\=\\h\\w*\\)*|\\)\\=' . s:line_term$/;"	v
+s:cmd	ftplugin/javascript/jslint.vim	/^    let s:cmd = "$JS_CMD"$/;"	v
+s:cmd	ftplugin/javascript/jslint.vim	/^    let s:cmd = '\/System\/Library\/Frameworks\/JavaScriptCore.framework\/Resources\/jsc'$/;"	v
+s:cmd	ftplugin/javascript/jslint.vim	/^    let s:cmd = 'js'$/;"	v
+s:cmd	ftplugin/javascript/jslint.vim	/^    let s:cmd = 'node'$/;"	v
+s:cmd	ftplugin/javascript/jslint.vim	/^    let s:cmd = 'nodejs'$/;"	v
+s:cmd	ftplugin/javascript/jslint.vim	/^  let s:cmd = 'cscript \/NoLogo '$/;"	v
+s:cmd	ftplugin/javascript/jslint.vim	/^let s:cmd = 'cd "' . s:plugin_path . '" && ' . s:cmd . ' "' . s:plugin_path . 'runjslint.' . s:runjslint_ext . '"'$/;"	v
+s:continuation_regex	bundle/vim-javascript/indent/javascript.vim	/^let s:continuation_regex = '\\%([\\\\*+\/.:]\\|\\%(<%\\)\\@<![=-]\\|\\W[|&?]\\|||\\|&&\\)' . s:line_term$/;"	v
+s:countonly	bundle/vim-javascript/indent/html.vim	/^let s:countonly = 0$/;"	v
+s:countonly	indent/html.vim	/^let s:countonly = 0$/;"	v
+s:cpo_save	bundle/vim-javascript/indent/html.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	bundle/vim-javascript/indent/javascript.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cpo_save	indent/html.vim	/^let s:cpo_save = &cpo$/;"	v
+s:cppKeyword	autoload/omni/cpp/tokenizer.vim	/^let s:cppKeyword = ['asm', 'auto', 'bool', 'break', 'case', 'catch', 'char', 'class', 'const', 'const_cast', 'continue', 'default', 'delete', 'do', 'double', 'dynamic_cast', 'else', 'enum', 'explicit', 'export', 'extern', 'false', 'float', 'for', 'friend', 'goto', 'if', 'inline', 'int', 'long', 'mutable', 'namespace', 'new', 'operator', 'private', 'protected', 'public', 'register', 'reinterpret_cast', 'return', 'short', 'signed', 'sizeof', 'static', 'static_cast', 'struct', 'switch', 'template', 'this', 'throw', 'true', 'try', 'typedef', 'typeid', 'typename', 'union', 'unsigned', 'using', 'virtual', 'void', 'volatile', 'wchar_t', 'while', 'and', 'and_eq', 'bitand', 'bitor', 'compl', 'not', 'not_eq', 'or', 'or_eq', 'xor', 'xor_eq']$/;"	v
+s:cppOperatorPunctuator	autoload/omni/cpp/tokenizer.vim	/^let s:cppOperatorPunctuator = ['->*', '->', '--', '-=', '-', '!=', '!', '##', '#', '%:%:', '%=', '%>', '%:', '%', '&&', '&=', '&', '(', ')', '*=', '*', ',', '...', '.*', '.', '\/=', '\/', '::', ':>', ':', ';', '?', '[', ']', '^=', '^', '{', '||', '|=', '|', '}', '~', '++', '+=', '+', '<<=', '<%', '<:', '<<', '<=', '<', '==', '=', '>>=', '>>', '>=', '>']$/;"	v
+s:css1indent	bundle/vim-javascript/indent/html.vim	/^let s:css1indent = 0$/;"	v
+s:css1indent	indent/html.vim	/^let s:css1indent = 0$/;"	v
+s:did_snip_helper	ftplugin/html_snip_helper.vim	/^let s:did_snip_helper = 1$/;"	v
+s:did_snips_mappings	after/plugin/snipMate.vim	/^let s:did_snips_mappings = 1$/;"	v
+s:done_bundles	autoload/pathogen.vim	/^let s:done_bundles = ''$/;"	v
+s:endtags	bundle/vim-javascript/indent/html.vim	/^let s:endtags = [0,0,0,0,0,0,0,0]   " some places unused$/;"	v
+s:endtags	indent/html.vim	/^let s:endtags = [0,0,0,0,0,0,0,0]   " some places unused$/;"	v
+s:file_dir_file	ftplugin/javascript/jslint.vim	/^let s:file_dir_file = expand('%:p:h') . '\/.jslintrc'$/;"	v
+s:filedir_rc	ftplugin/javascript/jslint.vim	/^    let s:filedir_rc = readfile(s:file_dir_file)$/;"	v
+s:hasPreviewWindow	autoload/omni/cpp/complete.vim	/^let s:hasPreviewWindow = match(&completeopt, 'preview')>=0$/;"	v
+s:hasPreviewWindowOld	autoload/omni/cpp/complete.vim	/^let s:hasPreviewWindowOld = s:hasPreviewWindow$/;"	v
+s:indent_tags	bundle/vim-javascript/indent/html.vim	/^  let s:indent_tags = {}$/;"	v
+s:indent_tags	indent/html.vim	/^    let s:indent_tags = {}$/;"	v
+s:install_dir	ftplugin/javascript/jslint.vim	/^let s:install_dir = expand('<sfile>:p:h')$/;"	v
+s:js1indent	bundle/vim-javascript/indent/html.vim	/^let s:js1indent = 0$/;"	v
+s:js1indent	indent/html.vim	/^let s:js1indent = 0$/;"	v
+s:jslintrc	ftplugin/javascript/jslint.vim	/^    let s:jslintrc = s:jslintrc + s:filedir_rc$/;"	v
+s:jslintrc	ftplugin/javascript/jslint.vim	/^    let s:jslintrc = s:jslintrc + s:localrc$/;"	v
+s:jslintrc	ftplugin/javascript/jslint.vim	/^  let s:jslintrc = []$/;"	v
+s:jslintrc	ftplugin/javascript/jslint.vim	/^  let s:jslintrc = readfile(s:jslintrc_file)$/;"	v
+s:jslintrc_file	ftplugin/javascript/jslint.vim	/^let s:jslintrc_file = expand('~\/.jslintrc')$/;"	v
+s:line_term	bundle/vim-javascript/indent/javascript.vim	/^let s:line_term = '\\s*\\%(\\%(\\\/\\\/\\).*\\)\\=$'$/;"	v
+s:localrc	ftplugin/javascript/jslint.vim	/^    let s:localrc = readfile(s:localrc_file)$/;"	v
+s:localrc_file	ftplugin/javascript/jslint.vim	/^let s:localrc_file = fnamemodify(".", ":p") . '\/.jslintrc'$/;"	v
+s:msl_regex	bundle/vim-javascript/indent/javascript.vim	/^let s:msl_regex = '\\%([\\\\*+\/.:([]\\|\\%(<%\\)\\@<![=-]\\|\\W[|&?]\\|||\\|&&\\)' . s:line_term$/;"	v
+s:newstate	bundle/vim-javascript/indent/html.vim	/^let s:newstate = {}$/;"	v
+s:newstate	indent/html.vim	/^let s:newstate = {}$/;"	v
+s:one_line_scope_regex	bundle/vim-javascript/indent/javascript.vim	/^let s:one_line_scope_regex = '\\<\\%(if\\|else\\|for\\|while\\)\\>[^{;]*' . s:line_term$/;"	v
+s:plugin_path	ftplugin/javascript/jslint.vim	/^  let s:plugin_path = substitute(s:plugin_path, '\/', '\\', 'g')$/;"	v
+s:plugin_path	ftplugin/javascript/jslint.vim	/^let s:plugin_path = s:install_dir . "\/jslint\/"$/;"	v
+s:popupItemResultList	autoload/omni/cpp/complete.vim	/^let s:popupItemResultList = []$/;"	v
+s:reCComment	autoload/omni/cpp/tokenizer.vim	/^let s:reCComment = '\\\/\\*\\|\\*\\\/'$/;"	v
+s:reComment	autoload/omni/cpp/tokenizer.vim	/^let s:reComment = s:reCComment.'\\|'.s:reCppComment$/;"	v
+s:reCppComment	autoload/omni/cpp/tokenizer.vim	/^let s:reCppComment = '\\\/\\\/'$/;"	v
+s:reCppKeyword	autoload/omni/cpp/tokenizer.vim	/^let s:reCppKeyword = '\\C\\<'.join(s:cppKeyword, '\\>\\|\\<').'\\>'$/;"	v
+s:reCppOperatorOrPunctuator	autoload/omni/cpp/tokenizer.vim	/^let s:reCppOperatorOrPunctuator = escape(join(s:cppOperatorPunctuator, '\\|'), '*.\/^~[]')$/;"	v
+s:reIncludeFilePart	autoload/omni/cpp/includes.vim	/^let s:reIncludeFilePart = '\\(<\\|"\\)\\(\\f\\|\\s\\)\\+\\(>\\|"\\)'$/;"	v
+s:rePreprocIncludeFile	autoload/omni/cpp/includes.vim	/^let s:rePreprocIncludeFile = s:rePreprocIncludePart . s:reIncludeFilePart$/;"	v
+s:rePreprocIncludePart	autoload/omni/cpp/includes.vim	/^let s:rePreprocIncludePart = '\\C#\\s*include\\s*'$/;"	v
+s:runjslint_ext	ftplugin/javascript/jslint.vim	/^  let s:runjslint_ext = 'js'$/;"	v
+s:runjslint_ext	ftplugin/javascript/jslint.vim	/^  let s:runjslint_ext = 'wsf'$/;"	v
+s:skip_expr	bundle/vim-javascript/indent/javascript.vim	/^let s:skip_expr = "synIDattr(synID(line('.'),col('.'),1),'name') =~ '".s:syng_strcom."'"$/;"	v
+s:snippets	plugin/snipMate.vim	/^let s:snippets = {} | let s:multi_snips = {}$/;"	v
+s:syng_multiline	bundle/vim-javascript/indent/javascript.vim	/^let s:syng_multiline = 'javaScriptDocComment\\|javaScriptComment'$/;"	v
+s:syng_strcom	bundle/vim-javascript/indent/javascript.vim	/^let s:syng_strcom = 'javaScript\\%(String\\|RegexpString\\|CommentTodo\\|LineComment\\|Comment\\|DocComment\\)'$/;"	v
+s:syng_string	bundle/vim-javascript/indent/javascript.vim	/^let s:syng_string = 'javaScript\\%(RegexpString\\)'$/;"	v
+s:szCurrentWorkingDir	autoload/omni/cpp/complete.vim	/^let s:szCurrentWorkingDir = getcwd()$/;"	v
+s:usestate	bundle/vim-javascript/indent/html.vim	/^let s:usestate = 1$/;"	v
+s:usestate	indent/html.vim	/^let s:usestate = 1$/;"	v
+sanitize	ftplugin/javascript/jslint/jslint-core.js	/^    function sanitize(a) {$/;"	f
+snipMate#expandSnip	autoload/snipMate.vim	/^fun snipMate#expandSnip(snip, col)$/;"	f
+snipMate#jumpTabStop	autoload/snipMate.vim	/^fun snipMate#jumpTabStop(backwards)$/;"	f
+snippets_dir	plugin/snipMate.vim	/^	let snippets_dir = substitute(globpath(&rtp, 'snippets\/'), "\\n", ',', 'g')$/;"	v
+stop	ftplugin/javascript/jslint/jslint-core.js	/^    function stop(message, offender, a, b, c, d) {$/;"	f
+stop_at	ftplugin/javascript/jslint/jslint-core.js	/^    function stop_at(message, line, character, a, b, c, d) {$/;"	f
+style	ftplugin/javascript/jslint/jslint-core.js	/^            style: sx,$/;"	p
+styleproperty	ftplugin/javascript/jslint/jslint-core.js	/^            styleproperty: ssx$/;"	p
+u	ftplugin/javascript/jslint.vim	/^noremap <buffer><silent> u u:JSLintUpdate<CR>$/;"	m
+warn	ftplugin/javascript/jslint/jslint-core.js	/^    function warn(message, offender, a, b, c, d) {$/;"	f
+warn_at	ftplugin/javascript/jslint/jslint-core.js	/^    function warn_at(message, line, character, a, b, c, d) {$/;"	f
+warning.id	ftplugin/javascript/jslint/jslint-core.js	/^            id: '(error)',$/;"	p
+warning.raw	ftplugin/javascript/jslint/jslint-core.js	/^            raw: bundle[message] || message,$/;"	p
