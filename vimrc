@@ -17,14 +17,14 @@
 
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h,*html,*js set tabstop=8
+au BufRead,BufNewFile *py,*pyw,*.c,*.h,*html,*js,*ejs set tabstop=8
 
 " What to use for an indent.
 " This will affect Ctrl-T and 'autoindent'.
 " Python: 4 spaces
 " C: tabs (pre-existing files) or 4 spaces (new files)
-au BufRead,BufNewFile *.py,*pyw,*.html,*.js set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw,*.html,*.js set expandtab
+au BufRead,BufNewFile *.py,*pyw,*.html,*.js,*.ejs set shiftwidth=4
+au BufRead,BufNewFile *.py,*.pyw,*.html,*.js,*.ejs set expandtab
 fu Select_c_style()
     if search('^\t', 'n', 150)
         set shiftwidth=8
@@ -98,6 +98,7 @@ filetype plugin on
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType ejs set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
 
@@ -119,12 +120,12 @@ set ruler
 set number
 set title
 set viminfo='10,\"100,:20,%,n~/.viminfo
+set wildignore+=*.o,*.obj,.git,node_modules,*.png,*.jpg,*.gif,*.jpeg,*.log,logs,npm-debug.log
 
 " configure tags - add additional tags here or comment out not-used ones
 set tags+=~/.vim/tags/cpp
 set tags+=~/.vim/tags/gl
 set tags+=~/.vim/tags/sdl
-set tags+=~/.vim/tags/qt4
 set tags+=~/.vim/tags/tags
 
 "undo files
@@ -164,8 +165,8 @@ call pathogen#infect()
 filetype plugin indent on
 let g:JSLintHighlightErrorLine = 0
 let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
+" let g:html_indent_script1 = "inc"
+" let g:html_indent_style1 = "inc"
 let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_smart_startup_focus=1
 let g:nerdtree_tabs_no_startup_for_diff=1
@@ -181,13 +182,28 @@ let g:ConqueTerm_CloseOnEnd = 1
 
 let g:node_usejscomplete = 1
 let g:jscomplete_use = ['dom', 'moz', 'es6th']
+"Enhanced commentify
+let g:EnhCommentifyRespectIndent = 'Yes'
+let g:EnhCommentifyPretty = 'Yes'
+
 autocmd FileType javascript :setlocal omnifunc=jscomplete#CompleteJS
 
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <C-b> :NERDTreeToggle<CR>
 map <F8> :ConqueTermSplit bash<CR>
-imap <M-c> <Esc><Plug>Traditionalji
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" Bundles
+Bundle 'gmarik/vundle'
+Bundle 'gmarik/github-search.vim'
+Bundle 'gmarik/sudo-gui.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'jQuery'
+Bundle 'surround.vim'
