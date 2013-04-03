@@ -39,6 +39,8 @@ au BufRead,BufNewFile Makefile* set noexpandtab
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
+" Hightlight mappings
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Display tabs at the beginning of a line in Python mode as bad.
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
@@ -119,13 +121,14 @@ set expandtab
 set ruler
 set number
 set title
+set hlsearch
 set viminfo='10,\"100,:20,%,n~/.viminfo
 set wildignore+=*.o,*.obj,.git,node_modules,*.png,*.jpg,*.gif,*.jpeg,*.log,logs,npm-debug.log
 
 " configure tags - add additional tags here or comment out not-used ones
-set tags+=~/.vim/tags/cpp
-set tags+=~/.vim/tags/gl
-set tags+=~/.vim/tags/sdl
+" set tags+=~/.vim/tags/cpp
+" set tags+=~/.vim/tags/gl
+" set tags+=~/.vim/tags/sdl
 set tags+=~/.vim/tags/tags
 
 "undo files
@@ -185,12 +188,18 @@ let g:jscomplete_use = ['dom', 'moz', 'es6th']
 "Enhanced commentify
 let g:EnhCommentifyRespectIndent = 'Yes'
 let g:EnhCommentifyPretty = 'Yes'
+" Command-t mappings
+let g:CommandTCancelMap='<Esc>'
 
 autocmd FileType javascript :setlocal omnifunc=jscomplete#CompleteJS
 
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <C-b> :NERDTreeToggle<CR>
 map <F8> :ConqueTermSplit bash<CR>
+
+" Indent mappings
+vnoremap <Tab> ==
+vnoremap <S-Tab> ==
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
