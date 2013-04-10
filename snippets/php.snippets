@@ -46,8 +46,7 @@ snippet doc_cp
 	 * ${1:undocumented class}
 	 *
 	 * @package ${2:default}
-	 * @author ${3:`g:snips_author`}
-	**/${4}
+	**/${3}
 # Class Variable - post doc
 snippet doc_vp
 	/**
@@ -91,8 +90,14 @@ snippet doc_fp
 	 * ${1:undocumented function}
 	 *
 	 * @return ${2:void}
-	 * @author ${3:`g:snips_author`}
 	 **/${4}
+# Constuctor Function - post doc
+snippet doc_fconst
+	/**
+	 * Constructor function
+	 *
+	 * @return ${1:void}
+	 **/${2}
 # Function signature
 snippet doc_s
 	/**
@@ -143,11 +148,9 @@ snippet class
 	/**
 	 * ${1}
 	 **/
-	class ${2:ClassName}
-	{
+	class ${2:ClassName} {
 		${3}
-		function ${4:__construct}(${5:argument})
-		{
+		function ${4:__construct}(${5:argument}) {
 			${6:// code...}
 		}
 	}
@@ -211,8 +214,7 @@ snippet foreach
 		${3:// code...}
 	}
 snippet fun
-	${1:public }function ${2:FunctionName}(${3})
-	{
+	${1:public }function ${2:FunctionName}(${3}) {
 		${4:// code...}
 	}
 # $... = array (...)
@@ -231,10 +233,8 @@ snippet classm
 	* ${1:Describe the model's purpose}
 	*/
 	
-	class ${2:model name} extends CI_Model
-	{
-		function __construct()
-		{
+	class ${2:model name} extends CI_Model {
+		public function __construct() {
 			parent::__construct();
 		}
 		${3:// Code...}
@@ -243,39 +243,21 @@ snippet classm
 snippet classc
 	<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 	/**
-	 * ${1:project_name}
-	 *
-	 * @package		${1:project_name}
-	 * @author	 * @copyright	Copyright (c) 2009, * @license		
-	 * @link			
-	 * @since			Version 1.0
-	 * @filesource
-	 */
+	* ${1:Describe the controller's purpose}
+	*/
+	class ${2:classname} extends CI_Controller {
 
-	// ------------------------------------------------------------------------
+		public function __construct() {
+			parent::__construct();
 
-	/**
-	 * ${3:classname}
-	 *
-	 * @package ${1:project_name}
-	 * @subpackage Controller
-	 * @since 1.0
-	 * @author  **/
-	class ${3:classname} extends ${4:Controller} {
-
-		/**
-		 * ${5:undocumented function}
-		 *
-		 * @return ${6:void}
-		 * @author 	 **/
-		function Index()
-		{
-			${0:// code...}
+			${3:// Code...}
 		}
 
+		function index() {
+		}
 	}
-	// End File ${3:classname}.php
-	// File Source /system/application/controllers/${3:classname}.php
+	// End File ${2:classname}.php
+	// File Source /system/application/controllers/${2:classname}.php
 # Form Validation Rules
 snippet formrule
 	$this->form_validation->set_rules('${1:field name}','${2:human name}', '${3:rules}');${4}
@@ -294,28 +276,21 @@ snippet loadtemp
 ##### Common Functions #####
 # Form validation run == FALSE
 snippet funform
-	function ${1:function}()
-	{
+	function ${1:function}() {
 		${2:rules}
-		if($this->form_validation_run() == FALSE)
-		{
+		if($this->form_validation_run() == FALSE) {
 			${3:form data arrays}
-		}
-		else
-		{
+		} else {
 			${4:success view}
 		}
 	}
 # Return If
 snippet returnif
-	if ($q->num_rows() > 0)
-	{
+	if ($q->num_rows() > 0) {
 		$${1:array} = $q->row_array();
 		
 		return $${1:array};
-	}
-	else
-	{
+	} else {
 		return FALSE;
 	}
 ##### Form Helper #####
@@ -403,6 +378,9 @@ snippet dbgetwhere
 # Select
 snippet dbselect
 	$this->db->select('${1:fields}');${2}
+# Do
+snippet dbdo
+	$this->db->${1:to_load}(${2:args});
 # Where
 snippet dbwhere
 	$this->db->where('${1:field}', $${2:input});${3}
