@@ -102,7 +102,7 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType ejs set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
+" au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
 
 autocmd vimenter * NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -113,7 +113,7 @@ set background=light     " you can use `dark` or `light` as your background
 set t_Co=256
 set nocp
 set nowrap              " dont wrap lines
-set scrolloff=4   " 4 lines above/below cursor when scrolling
+set scrolloff=5   " 5 lines above/below cursor when scrolling
 set confirm             " get a dialog when :q, :w, or :wq fails
 set autoindent
 set copyindent
@@ -171,36 +171,39 @@ set vb
 color mango
 call pathogen#infect()
 filetype plugin indent on
-let g:JSLintHighlightErrorLine = 0
-let g:html_indent_inctags = "html,body,head,tbody"
+let g:JSLintHighlightErrorLine=0
+let g:html_indent_inctags="html,body,head,tbody"
 " let g:html_indent_script1 = "inc"
 " let g:html_indent_style1 = "inc"
-let g:nerdtree_tabs_open_on_console_startup=1
-let g:nerdtree_tabs_smart_startup_focus=1
-let g:nerdtree_tabs_no_startup_for_diff=1
-let g:nerdtree_tabs_synchronize_view=1
-let g:nerdtree_tabs_focus_on_files=0
-let g:nerdtree_tabs_startup_cd=1
 
-let g:ConqueTerm_TERM = 'vt100'
-let g:ConqueTerm_Syntax = 'conque'
-let g:ConqueTerm_ReadUnfocused = 1
-let g:ConqueTerm_CWInsert = 1
-let g:ConqueTerm_CloseOnEnd = 1
-
-let g:node_usejscomplete = 1
-let g:jscomplete_use = ['dom'] ", 'moz', 'es6th']
+" let g:node_usejscomplete=1
+" let g:jscomplete_use = ['dom'] ", 'moz', 'es6th']
 "Enhanced commentify
 let g:EnhCommentifyRespectIndent = 'Yes'
 let g:EnhCommentifyPretty = 'Yes'
 " Command-t mappings
 let g:CommandTCancelMap='<Esc>'
+" session configs
+let g:session_autoload='prompt'
+let g:session_autosave='true'
+let g:session_command_aliases=1
 
-autocmd FileType javascript :setlocal omnifunc=jscomplete#CompleteJS
+" autocmd FileType javascript :setlocal omnifunc=jscomplete#CompleteJS
+" omni complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+
+" php omnicomplete config
+let php_sql_query=1
+let php_htmlInStrings=1
 
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <C-b> :NERDTreeToggle<CR>
-map <F8> :ConqueTermSplit bash<CR>
 " window resize commands
 map - <C-W><
 map + <C-W>>
@@ -225,5 +228,8 @@ Bundle 'gmarik/sudo-gui.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'jQuery'
-Bundle 'surround.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'git://github.com/jistr/vim-nerdtree-tabs.git'
+Bundle 'Valloric/YouCompleteMe'
