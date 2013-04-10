@@ -112,6 +112,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 set background=light     " you can use `dark` or `light` as your background
 set t_Co=256
 set nocp
+set nowrap              " dont wrap lines
+set scrolloff=4   " 4 lines above/below cursor when scrolling
+set confirm             " get a dialog when :q, :w, or :wq fails
 set autoindent
 set copyindent
 set smartcase
@@ -122,6 +125,8 @@ set ruler
 set number
 set title
 set hlsearch
+set incsearch               " search incremently (search while typing)
+set mouse=vin               " use mouse in visual,insert and normal mode
 set viminfo='10,\"100,:20,%,n~/.viminfo
 set wildignore+=*.o,*.obj,.git,node_modules,*.png,*.jpg,*.gif,*.jpeg,*.log,logs,npm-debug.log
 
@@ -184,7 +189,7 @@ let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_CloseOnEnd = 1
 
 let g:node_usejscomplete = 1
-let g:jscomplete_use = ['dom', 'moz', 'es6th']
+let g:jscomplete_use = ['dom'] ", 'moz', 'es6th']
 "Enhanced commentify
 let g:EnhCommentifyRespectIndent = 'Yes'
 let g:EnhCommentifyPretty = 'Yes'
@@ -196,10 +201,16 @@ autocmd FileType javascript :setlocal omnifunc=jscomplete#CompleteJS
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <C-b> :NERDTreeToggle<CR>
 map <F8> :ConqueTermSplit bash<CR>
+" window resize commands
+map - <C-W><
+map + <C-W>>
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-l> :wincmd l<CR>
 
 " Indent mappings
 vnoremap <Tab> ==
-vnoremap <S-Tab> ==
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
