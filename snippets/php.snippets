@@ -128,7 +128,7 @@ snippet doc_h
 	 * @copyright ${4:$2}, `strftime('%d %B, %Y')`
 	 * @package ${5:default}
 	 **/
-	
+
 	/**
 	 * Define DocBlock
 	 *//
@@ -232,7 +232,7 @@ snippet classm
 	/*
 	* ${1:Describe the model's purpose}
 	*/
-	
+
 	class ${2:model name} extends CI_Model {
 		public function __construct() {
 			parent::__construct();
@@ -288,7 +288,7 @@ snippet funform
 snippet returnif
 	if ($q->num_rows() > 0) {
 		$${1:array} = $q->row_array();
-		
+
 		return $${1:array};
 	} else {
 		return FALSE;
@@ -421,6 +421,3 @@ snippet cidb
 	$query->result();
 snippet cidba
 	$query->result_array();
-
-
-	
