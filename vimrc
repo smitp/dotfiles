@@ -10,9 +10,6 @@ au BufRead,BufNewFile Makefile* set noexpandtab
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
-" Hightlight mappings
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
 " Use UNIX (\n) line endings for new files
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
@@ -21,8 +18,9 @@ set encoding=utf-8
 
 syntax on
 " fold conf
-set foldmethod=syntax
-set nofoldenable
+set foldmethod=indent
+set foldlevelstart=1
+" set nofoldenable
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -103,9 +101,14 @@ endif
 " source .local_vim
 
 set vb
-
-color mango
 call pathogen#infect()
+
+syntax enable
+set background=light
+let g:solarized_termcolors=256
+colorscheme solarized
+" color mango
+
 filetype plugin indent on
 let g:dbgPavimPort = 9081 
 let g:JSLintHighlightErrorLine=0
@@ -118,8 +121,6 @@ let g:html_indent_inctags="html,body,head,tbody"
 "Enhanced commentify
 let g:EnhCommentifyRespectIndent = 'Yes'
 let g:EnhCommentifyPretty = 'Yes'
-" Command-t mappings
-let g:CommandTCancelMap='<Esc>'
 " session configs
 let g:session_autoload='prompt'
 let g:session_autosave='true'
@@ -153,6 +154,10 @@ nmap <silent> <C-l> :wincmd l<CR>
 " Indent mappings
 vnoremap <Tab> ==
 
+" Hightlight mappings
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <Leader>t :tabnew<CR>
+
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
@@ -165,7 +170,7 @@ Bundle 'gmarik/github-search.vim'
 Bundle 'gmarik/sudo-gui.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'git://git.wincent.com/command-t.git'
+" Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'airblade/vim-gitgutter'
@@ -174,3 +179,5 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'EasyGrep'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'DBGPavim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'altercation/vim-colors-solarized'
