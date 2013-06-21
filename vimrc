@@ -33,14 +33,26 @@ autocmd vimenter * wincmd l
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+"allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 set background=light             " you can use `dark` or `light` as your background
 set t_Co=256
 set nocp
 set nowrap                       " dont wrap lines
-set scrolloff=5                  " 5 lines above/below cursor when scrolling
+
+"vertical/horizontal scroll off settings
+set scrolloff=5
+set sidescrolloff=7
+set sidescroll=1
+
 set confirm                      " get a dialog when :q, :w, or :wq fails
 set autoindent
 set copyindent
+
+" Display unprintable chars
+set list
+set listchars=tab:▸\ ,extends:❯,precedes:❮,nbsp:␣
+set showbreak=↪
 
 " Case insensitive search
 set ignorecase
@@ -54,15 +66,11 @@ set number
 set title
 set hlsearch
 set incsearch               " search incremently (search while typing)
+" Make regex a little easier to type
+set magic
 set mouse=in               " use mouse in visual,insert and normal mode
 set viminfo='10,\"100,:20,%,n~/.viminfo
 set wildignore+=*.o,*.obj,.git,node_modules,*.png,*.jpg,*.gif,*.jpeg,*.log,logs,npm-debug.log
-
-" configure tags - add additional tags here or comment out not-used ones
-" set tags+=~/.vim/tags/cpp
-" set tags+=~/.vim/tags/gl
-" set tags+=~/.vim/tags/sdl
-" set tags+=~/.vim/tags/tags
 
 "undo files
 set undodir=~/.vim/undodir
@@ -100,19 +108,22 @@ endif
 " and uncommenting the following
 " source .local_vim
 
-set vb
+" set vb
 call pathogen#infect()
 
 syntax enable
 set background=light
 let g:solarized_termcolors=256
 colorscheme solarized
-" color mango
+" let g:Powerline_symbols = 'fancy'
+let g:Powerline_theme='short'
+let g:Powerline_colorscheme='solarized256_dark'
 
 filetype plugin indent on
-let g:dbgPavimPort = 9081 
+let g:dbgPavimPort = 9081
 let g:JSLintHighlightErrorLine=0
 let g:html_indent_inctags="html,body,head,tbody"
+let g:used_javascript_libs = 'jquery,angularjs'
 " let g:html_indent_script1 = "inc"
 " let g:html_indent_style1 = "inc"
 
@@ -125,6 +136,12 @@ let g:EnhCommentifyPretty = 'Yes'
 let g:session_autoload='prompt'
 let g:session_autosave='true'
 let g:session_command_aliases=1
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:ycm_key_select_completion='<Tab>'
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_min_num_of_chars_for_completion = 4
 
 " remove trailing whitespace
 autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -136,7 +153,9 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
-
+" js sytaxComplate
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 " php omnicomplete config
 let php_sql_query=1
 let php_htmlInStrings=1
@@ -157,6 +176,31 @@ vnoremap <Tab> ==
 " Hightlight mappings
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 nnoremap <Leader>t :tabnew<CR>
+" make Y consistent with C and D
+nnoremap Y y$
+" <Leader>f: Open Quickfix
+nnoremap <silent> <Leader>f :botright copen<CR>
+" <Leader>n: NERDTreeFind
+nnoremap <silent> <Leader>n :NERDTreeFind<cr>
+" U: Redos since 'u' undos
+nnoremap U <c-r>
+" _ : Quick horizontal splits
+nnoremap _ :sp<cr>
+" | : Quick vertical splits
+nnoremap <bar> :vsp<cr>
+" Alt-a: Select all
+nnoremap a ggVG
+" d: Delete into the blackhole register to not clobber the last yank
+nnoremap x "_x
+" ;: Command mode
+noremap ; :
+" c: Change into the blackhole register to not clobber the last yank
+nnoremap c "_c
+" Tab: Indent
+xmap <Tab> >
+
+" shift-tab: unindent
+xmap <s-tab> <
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
@@ -181,3 +225,11 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'DBGPavim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'SirVer/ultisnips'
+Bundle 'koron/nyancat-vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'stephenmckinney/vim-solarized-powerline'
+" Bundle 'github-theme'
+" Bundle 'nanotech/jellybeans.vim'
