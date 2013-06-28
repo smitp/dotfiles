@@ -1,18 +1,3 @@
-au BufRead,BufNewFile *py,*pyw,*.c,*.h,*html,*js,*ejs set tabstop=8
-
-" What to use for an indent.
-" This will affect Ctrl-T and 'autoindent'.
-" Python: 4 spaces
-" C: tabs (pre-existing files) or 4 spaces (new files)
-au BufRead,BufNewFile *.py,*pyw,*.html,*.js,*.ejs set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw,*.html,*.js,*.ejs set expandtab
-au BufRead,BufNewFile Makefile* set noexpandtab
-
-" Use the below highlight group when displaying bad whitespace is desired.
-highlight BadWhitespace ctermbg=red guibg=red
-" Use UNIX (\n) line endings for new files
-au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
-
 " Set the default file encoding to UTF-8: 
 set encoding=utf-8
 
@@ -22,11 +7,6 @@ set foldmethod=indent
 set foldlevelstart=1
 " set nofoldenable
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType ejs set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
 " command to run at startup
 autocmd vimenter * NERDTree
 autocmd vimenter * wincmd l
@@ -35,7 +15,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-set background=light             " you can use `dark` or `light` as your background
 set t_Co=256
 set nocp
 set nowrap                       " dont wrap lines
@@ -113,11 +92,11 @@ call pathogen#infect()
 
 syntax enable
 set background=light
-let g:solarized_termcolors=256
-colorscheme solarized
+" let g:solarized_termcolors=256
+colorscheme mango
 " let g:Powerline_symbols = 'fancy'
-let g:Powerline_theme='short'
-let g:Powerline_colorscheme='solarized256_dark'
+let g:Powerline_theme='fancy'
+" let g:Powerline_colorscheme='solarized256_light'
 
 filetype plugin indent on
 let g:dbgPavimPort = 9081
@@ -141,7 +120,18 @@ let g:ycm_key_select_completion='<Tab>'
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_min_num_of_chars_for_completion = 4
+let g:ycm_min_num_of_chars_for_completion = 2
+
+" crtlp keymap
+let g:ctrlp_map = '<c-f>'
+
+" vim dict
+let g:dict_hosts = [ ["dict.org", ["all"]] ]
+" zen coding
+let g:user_zen_mode='inv'
+let g:use_zen_complete_tag = 1
+" let g:user_zen_leader_key = '<c-y>'
+let g:user_zen_expandabbr_key='<C-e>'
 
 " remove trailing whitespace
 autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -149,10 +139,13 @@ autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType ejs set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+
+
 " js sytaxComplate
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
@@ -196,6 +189,12 @@ nnoremap x "_x
 noremap ; :
 " c: Change into the blackhole register to not clobber the last yank
 nnoremap c "_c
+" move line down
+nnoremap <silent> <C-Down> :.m+<CR>
+" move line up
+nnoremap <silent> <C-Up> :-m.<CR>k
+" add a semicolon ';' at the end of the line
+nnoremap ;; A;<Esc>
 " Tab: Indent
 xmap <Tab> >
 
@@ -207,6 +206,7 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 call vundle#rc()
 " Bundles
 Bundle 'gmarik/vundle'
@@ -229,7 +229,16 @@ Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'koron/nyancat-vim'
 Bundle 'Raimondi/delimitMate'
-Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/powerline'
 Bundle 'stephenmckinney/vim-solarized-powerline'
-" Bundle 'github-theme'
+Bundle 'gregsexton/MatchTag'
+Bundle 'szw/vim-dict'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-sleuth'
+Bundle 'LargeFile'
+Bundle 'TwitVim'
+Bundle 'spf13/PIV'
+Bundle 'mattn/zencoding-vim'
+Bundle 'YankRing.vim'
+Bundle 'nginx.vim'
 " Bundle 'nanotech/jellybeans.vim'
