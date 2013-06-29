@@ -195,6 +195,14 @@ nnoremap <silent> <C-Down> :.m+<CR>
 nnoremap <silent> <C-Up> :-m.<CR>k
 " add a semicolon ';' at the end of the line
 nnoremap ;; A;<Esc>
+" keep search match or last edit jumps in the moddle of the window
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap g; g;zz
+nnoremap g, g,zz
+
+" Dont move cursor to enxt search
+nnoremap * *<c-o>
 " Tab: Indent
 xmap <Tab> >
 
