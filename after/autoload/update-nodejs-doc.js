@@ -86,17 +86,22 @@ function getNodejsDoc() {
 
 function extract2VimScript(body) {
   // for debug
-  fs.writeFileSync('./nodejs-doc-all.json', body);
+  fs.writeFile('./nodejs-doc-all.json', body);
   var json = JSON.parse(body),
       vimObject;
 
-  var _globals = sortModuleByName(mergeObject(getModInfo(json.globals), getModInfo(json.vars))),
-      _moduels = sortModuleByName(getModInfo(json.modules)),
-      _vars = (getVarInfo(json.vars)).concat(getVarInfo(json.globals)).sort(sortCompleteWord);
+  var _globals = sortModuleByName(mergeObject(getModsInfo(json.globals),
+                                              getModsInfo(json.vars))),
+      _modules = sortModuleByName(getModsInfo(json.modules)),
+      _vars = (getVarInfo(json.vars))
+                .concat(getVarInfo(json.globals))
+                  .sort(sortCompleteWord);
+
+  _globals = copyGlobals(_globals, _modules);
 
   vimObject = {
     'globals': _globals,
-    'modules': _moduels,
+    'modules': _modules,
     'vars': _vars
   };
 
@@ -115,64 +120,148 @@ function extract2VimScript(body) {
   fs.writeFileSync(filename + '.js', JSON.stringify(vimObject, null, 2));
 }
 
-function getModInfo(mods) {
+function getModsInfo(mods) {
   var ret = {};
   if (!util.isArray(mods)) {
     return ret;
   }
 
+
   mods.forEach(function(mod) {
-    var list = [];
+    var mod_name = getModName(mod),
+        mod_props = getModProps(mod);
 
-    // methods
-    var methods = mod.methods || [];
-    methods.forEach(function(method) {
-      var item = {};
-      if (method.type == 'method') {
-        item.word = method.name + '(';
-        item.info = method.textRaw;
-        item.kind = 'f'
-
-        list.push(item);
+    // class
+    var mod_classes = {};
+    var classes = mod.classes || [];
+    classes.forEach(function(cls) {
+      var names = getClassName(cls, mod_name);
+      var cls_name = names.cls_name,
+          _mod_name = names.mod_name;
+      if (_mod_name && mod_name != _mod_name) {
+        mod_name = names.mod_name;
       }
+
+      mod_classes[cls_name] = getModProps(cls);
     });
 
-    // properties
-    var properties = mod.properties || [];
-    properties.forEach(function(property) {
-      var item = {};
-      item.word = property.name;
-      item.kind = 'm'
-
-      list.push(item);
-    });
-
-    // if empty
-    if (list.length == 0) {
-      return;
-    }
-
-    // sort items
-    list = list.sort(sortCompleteWord);
-
-
-    // module name
-    var mod_name = mod.name;
-    // invalid module name like 'tls_(ssl)'
-    // then guess the module name from textRaw 'TLS (SSL)'
-    if ((/[^_a-z\d\$]/i).test(mod_name)) {
-      var textRaw = mod.textRaw;
-      var matched = textRaw.match(/^[_a-z\d\$]+/i);
-      if (matched) {
-        var mod_name_len = matched[0].length;
-        mod_name = mod_name.substr(0, mod_name_len);
+    if (mod_props.length == 0 && classes.length == 0) {
+    } else {
+      ret[mod_name] = {
+        props: mod_props,
+        classes: mod_classes
       }
     }
-
-    ret[mod_name] = list;
   });
 
   return ret;
+}
+
+function getModProps(mod) {
+  var is_legal_property_name = function(name) {
+    name += '';
+    name = name.trim();
+
+    return (/^[$a-zA-Z_][$a-zA-Z0-9_]*$/i).test(name);
+  };
+
+  var props = [];
+  // properties
+  var properties = mod.properties || [];
+  properties.forEach(function(property) {
+    var name = property.name;
+    if (is_legal_property_name(name)) {
+      var item = {};
+      item.word = name;
+      item.kind = 'm';
+      item.info = ' ';
+
+      props.push(item);
+    } else {
+      console.log('illegal name: ' + name);
+    }
+  });
+
+  // methods
+  var methods = mod.methods || [];
+  methods.forEach(function(method) {
+    var name = method.name;
+    if (is_legal_property_name(name)) {
+      var item = {};
+      if (method.type == 'method') {
+        item.word = name;
+        item.info = method.textRaw;
+        item.kind = 'f';
+
+        props.push(item);
+      }
+    } else {
+      console.log('illegal name: ' + name);
+    }
+  });
+
+  // classes
+  var classes = mod.classes || [];
+  classes.forEach(function(cls) {
+    var mod_name = getModName(mod);
+    var names = getClassName(cls, mod_name);
+    var name = names.cls_name;
+    if (is_legal_property_name(name)) {
+      var item = {};
+      item.word = names.cls_name;
+      item.kind = 'f';
+      item.info = ' ';
+
+      props.push(item);
+    } else {
+      console.log('illegal name: ' + name);
+    }
+  });
+
+  props = props.sort(sortCompleteWord);
+
+  return props;
+}
+
+function getModName(mod) {
+  // module name
+  var mod_name = mod.name;
+  // invalid module name like 'tls_(ssl)'
+  // then guess the module name from textRaw 'TLS (SSL)'
+  if ((/[^_a-z\d\$]/i).test(mod_name)) {
+    var textRaw = mod.textRaw;
+    var matched = textRaw.match(/^[_a-z\d\$]+/i);
+    if (matched) {
+      var mod_name_len = matched[0].length;
+      mod_name = mod_name.substr(0, mod_name_len);
+    }
+  }
+
+  return mod_name;
+}
+
+function getClassName(cls, mod_name) {
+  var str = cls.name;
+  var names = str.split('.');
+
+  var _mod_name = names[0],
+      cls_name;
+
+  if (names.length == 1) {
+    cls_name = _mod_name;
+  }
+  else {
+    // 修正 mod_name; events.EventEmitter
+    if (_mod_name.toLowerCase() == mod_name.toLowerCase()) {
+      mod_name = _mod_name;
+    }
+    cls_name = names.slice(1).join('.');
+  }
+
+  return {
+    mod_name: mod_name,
+    cls_name: cls_name
+  };
 }
 
 function getVarInfo(vars) {
@@ -185,14 +274,15 @@ function getVarInfo(vars) {
     // if var is a function
     if ((/\([^\(\)]*\)\s*$/).test(_var.textRaw)) {
       ret.push({
-        word: _var.name + '(',
+        word: _var.name,
         info: _var.textRaw,
         kind: 'f'
       });
     } else {
       ret.push({
         word: _var.name,
-        kind: 'v'
+        kind: 'v',
+        info: ' '
       });
     }
   });
@@ -201,6 +291,19 @@ function getVarInfo(vars) {
   ret = ret.sort(sortCompleteWord);
 
   return ret;
+}
+
+function copyGlobals(globals, modules) {
+  var _Buffer = modules.buffer.classes.Buffer;
+
+  globals.Buffer = {
+    props: [],
+    classes: {
+      '.self': _Buffer
+    }
+  };
+
+  return globals;
 }
 
 
@@ -252,32 +355,3 @@ function mergeObject() {
 
   return ret;
 }
-
-
-/*************** code below for test ***************
-
-// require complete
-var fs = req
-var http = require(
-var util = require('u
-var m1 = require('..
-var m1 = require('../
-var m2 = require('../auto
-var m4 = require('.
-var m3 = require('./
-var m3 = require('./node
-
-
-// module methdo complete
-var fs = require('fs');
-fs.
-fs.writ
-
-
-// global variable complete
-var filename = __
-mo
-cons
-console.l
-
-***************************************************/

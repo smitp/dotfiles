@@ -3,6 +3,27 @@ set encoding=utf-8
 
 syntax on
 " fold conf
+fu! CustomFoldText()
+    "get first non-blank line
+    let fs = v:foldstart
+    while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
+    endwhile
+    if fs > v:foldend
+        let line = getline(v:foldstart)
+    else
+        let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+    endif
+
+    let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
+    let foldSize = 1 + v:foldend - v:foldstart
+    let foldSizeStr = " " . foldSize . " lines "
+    let foldLevelStr = repeat("+--", v:foldlevel)
+    let lineCount = line("$")
+    let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
+    let expansionString = repeat(".", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
+    return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
+endf
+set foldtext=CustomFoldText()
 set foldmethod=indent
 set foldlevelstart=1
 " set nofoldenable
@@ -41,7 +62,7 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set ruler
-set number
+set rnu
 set title
 set hlsearch
 set incsearch               " search incremently (search while typing)
@@ -58,7 +79,6 @@ set undolevels=1000
 set undoreload=10000
 set cursorline
 set laststatus=2
-set autochdir
 " show line numbers
 se nu
 
@@ -89,25 +109,31 @@ endif
 
 " set vb
 call pathogen#infect()
+call pathogen#helptags()
 
 syntax enable
 set background=light
-" let g:solarized_termcolors=256
-colorscheme mango
-" let g:Powerline_symbols = 'fancy'
-let g:Powerline_theme='fancy'
-" let g:Powerline_colorscheme='solarized256_light'
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="low"
+colorscheme solarized
 
 filetype plugin indent on
-let g:dbgPavimPort = 9081
+" let g:dbgPavimPort = 9081
 let g:JSLintHighlightErrorLine=0
 let g:html_indent_inctags="html,body,head,tbody"
 let g:used_javascript_libs = 'jquery,angularjs'
+" journal dir
+let g:journal_directory = "~/Dropbox/important"
+let g:journal_extension = "markdown"
+
+" js sytaxComplate
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 " let g:html_indent_script1 = "inc"
 " let g:html_indent_style1 = "inc"
 
-" let g:node_usejscomplete=1
-" let g:jscomplete_use = ['dom'] ", 'moz', 'es6th']
 "Enhanced commentify
 let g:EnhCommentifyRespectIndent = 'Yes'
 let g:EnhCommentifyPretty = 'Yes'
@@ -116,7 +142,6 @@ let g:session_autoload='prompt'
 let g:session_autosave='true'
 let g:session_command_aliases=1
 let g:UltiSnipsExpandTrigger="<c-j>"
-let g:ycm_key_select_completion='<Tab>'
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -128,36 +153,60 @@ let g:ctrlp_map = '<c-f>'
 " vim dict
 let g:dict_hosts = [ ["dict.org", ["all"]] ]
 " zen coding
-let g:user_zen_mode='inv'
-let g:use_zen_complete_tag = 1
+let g:user_emmet_mode='inv'
+let g:use_emmet_complete_tag = 1
 " let g:user_zen_leader_key = '<c-y>'
-let g:user_zen_expandabbr_key='<C-e>'
+let g:user_emmet_expandabbr_key='<C-e>'
+" node completion
+let g:nodejs_complete_config = {
+\  'js_compl_fn': 'jscomplete#CompleteJS',
+\  'max_node_compl_len': 15
+\}
+" pymode settings
+let g:pymode_rope = 0
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+"Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+let g:pymode_lint_write = 1
+" Support virtualenv
+let g:pymode_virtualenv = 1
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>b'
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " remove trailing whitespace
 autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\s\+$//e
 " omni complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType ejs set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setl omnifunc=jscomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+" autocmd FileType php set ft=php.laravel
 autocmd FileType c set omnifunc=ccomplete#Complete
+" Git commits.
+autocmd FileType gitcommit setlocal spell
 
-
-" js sytaxComplate
-autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
-" php omnicomplete config
-let php_sql_query=1
-let php_htmlInStrings=1
 
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <C-b> :NERDTreeToggle<CR>
 " window resize commands
 map - <C-W><
 map + <C-W>>
+" Move tab bindings
+nmap <silent> <C-s> :tabmove -1 <CR>
+nmap <silent> <C-z> :tabmove +1 <CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
@@ -195,6 +244,8 @@ nnoremap <silent> <C-Down> :.m+<CR>
 nnoremap <silent> <C-Up> :-m.<CR>k
 " add a semicolon ';' at the end of the line
 nnoremap ;; A;<Esc>
+" add a comma ',' at the end of the line
+nnoremap ;, A,<Esc>
 " keep search match or last edit jumps in the moddle of the window
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -214,15 +265,14 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
 set rtp+=~/.vim/bundle/vundle/
-set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+set rtp+=/usr/lib/python3.3/site-packages/powerline/bindings/vim/
 call vundle#rc()
 " Bundles
 Bundle 'gmarik/vundle'
-Bundle 'gmarik/github-search.vim'
+" Bundle 'gmarik/github-search.vim'
 Bundle 'gmarik/sudo-gui.vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'git://git.wincent.com/command-t.git'
+" Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'airblade/vim-gitgutter'
@@ -230,23 +280,31 @@ Bundle 'git://github.com/jistr/vim-nerdtree-tabs.git'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'EasyGrep'
 Bundle 'terryma/vim-multiple-cursors'
-Bundle 'DBGPavim'
+" Bundle 'DBGPavim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'othree/javascript-libraries-syntax.vim'
+" Bundle 'altercation/vim-colors-solarized'
+" Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'jelera/vim-javascript-syntax'
 Bundle 'SirVer/ultisnips'
 Bundle 'koron/nyancat-vim'
 Bundle 'Raimondi/delimitMate'
-" Bundle 'Lokaltog/powerline'
+Bundle 'docunext/closetag.vim'
 Bundle 'stephenmckinney/vim-solarized-powerline'
 Bundle 'gregsexton/MatchTag'
 Bundle 'szw/vim-dict'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-sleuth'
+" Bundle 'tpope/vim-abolish'
+" Bundle 'tpope/vim-sleuth'
 Bundle 'LargeFile'
-Bundle 'TwitVim'
-Bundle 'spf13/PIV'
-Bundle 'mattn/zencoding-vim'
-Bundle 'YankRing.vim'
-Bundle 'nginx.vim'
-" Bundle 'nanotech/jellybeans.vim'
+" Bundle 'TwitVim'
+" Bundle 'spf13/PIV'
+Bundle 'mattn/emmet-vim'
+Bundle 'tpope/vim-surround'
+" Bundle 'YankRing.vim'
+Bundle 'teramako/jscomplete-vim'
+Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-markdown'
+Bundle 'mattn/calendar-vim'
+Bundle "pangloss/vim-javascript"
+" Bundle 'dbext.vim'
+" Bundle 'davidhalter/jedi-vim'
+" Bundle 'joonty/vdebug.git'
