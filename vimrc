@@ -1,41 +1,9 @@
-" Set the default file encoding to UTF-8: 
-set encoding=utf-8
-
-syntax on
-" fold conf
-fu! CustomFoldText()
-    "get first non-blank line
-    let fs = v:foldstart
-    while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
-    endwhile
-    if fs > v:foldend
-        let line = getline(v:foldstart)
-    else
-        let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
-    endif
-
-    let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
-    let foldSize = 1 + v:foldend - v:foldstart
-    let foldSizeStr = " " . foldSize . " lines "
-    let foldLevelStr = repeat("+--", v:foldlevel)
-    let lineCount = line("$")
-    let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
-    let expansionString = repeat(".", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
-    return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
-endf
-set foldtext=CustomFoldText()
-set foldmethod=indent
-set foldlevelstart=1
-" set nofoldenable
-
 " command to run at startup
 autocmd vimenter * NERDTree
 autocmd vimenter * wincmd l
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-"allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 set t_Co=256
 set nocp
 set nowrap                       " dont wrap lines
@@ -46,10 +14,9 @@ set sidescrolloff=7
 set sidescroll=1
 
 set confirm                      " get a dialog when :q, :w, or :wq fails
-set autoindent
 set copyindent
 
-" Display unprintable chars
+" Display unprintable chars. Override vim-sensible defaults
 set list
 set listchars=tab:▸\ ,extends:❯,precedes:❮,nbsp:␣
 set showbreak=↪
@@ -60,12 +27,10 @@ set smartcase
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set smarttab
-set ruler
+set nu
 set rnu
 set title
 set hlsearch
-set incsearch               " search incremently (search while typing)
 " Make regex a little easier to type
 set magic
 set mouse=in               " use mouse in visual,insert and normal mode
@@ -78,9 +43,11 @@ set undofile
 set undolevels=1000 
 set undoreload=10000
 set cursorline
-set laststatus=2
-" show line numbers
-se nu
+
+" fold conf
+set foldmethod=indent
+set foldlevelstart=1
+" set nofoldenable
 
 " Writes to the unnamed register also writes to the * and + registers. This
 " makes it easy to interact with the system clipboard
@@ -89,15 +56,7 @@ if has ('unnamedplus')
 else
   set clipboard=unnamed
 endif
-
-"http://vim.wikia.com/wiki/In_line_copy_and_paste_to_system_clipboard
-"sudo apt-get install xclip
-" vmap <C-c> y: call system("xclip -i -selection clipboard", getreg("\""))<CR>
-" nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
-
-
-"This should be in /etc/vim/vimrc or wherever you global vimrc is.
-"But, if not, I for one can't live without it.
+set pastetoggle=<F3>
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -108,10 +67,6 @@ endif
 " source .local_vim
 
 " set vb
-call pathogen#infect()
-call pathogen#helptags()
-
-syntax enable
 set background=light
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
@@ -119,7 +74,6 @@ let g:solarized_contrast="high"
 let g:solarized_visibility="low"
 colorscheme solarized
 
-filetype plugin indent on
 " let g:dbgPavimPort = 9081
 let g:JSLintHighlightErrorLine=0
 let g:html_indent_inctags="html,body,head,tbody"
@@ -127,12 +81,6 @@ let g:used_javascript_libs = 'jquery,angularjs'
 " journal dir
 let g:journal_directory = "~/Dropbox/important"
 let g:journal_extension = "markdown"
-
-" js sytaxComplate
-autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
-" let g:html_indent_script1 = "inc"
-" let g:html_indent_style1 = "inc"
 
 "Enhanced commentify
 let g:EnhCommentifyRespectIndent = 'Yes'
@@ -148,7 +96,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 2
 
 " crtlp keymap
-let g:ctrlp_map = '<c-f>'
+let g:ctrlp_map = '<c-p>'
 
 " vim dict
 let g:dict_hosts = [ ["dict.org", ["all"]] ]
@@ -210,7 +158,10 @@ nmap <silent> <C-l> :wincmd l<CR>
 vnoremap <Tab> ==
 
 " Hightlight mappings
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+" Use <Space> to clear the highlighting of :set hlsearch.
+if maparg('<Space>', 'n') ==# ''
+  nnoremap <silent> <Space> :nohlsearch<CR><Space>
+endif
 nnoremap <Leader>t :tabnew<CR>
 " make Y consistent with C and D
 nnoremap Y y$
@@ -261,8 +212,11 @@ set completeopt=menuone,menu,longest,preview
 set rtp+=~/.vim/bundle/vundle/
 " TODO: append vim powerline bindings to rtp
 set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+call pathogen#helptags()
+call pathogen#infect()
 call vundle#rc()
-" Bundles
+
+ " Bundles
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/nerdtree'
