@@ -157,11 +157,6 @@ let g:user_emmet_mode='inv'
 let g:use_emmet_complete_tag = 1
 " let g:user_zen_leader_key = '<c-y>'
 let g:user_emmet_expandabbr_key='<C-e>'
-" node completion
-let g:nodejs_complete_config = {
-\  'js_compl_fn': 'jscomplete#CompleteJS',
-\  'max_node_compl_len': 15
-\}
 " pymode settings
 let g:pymode_rope = 0
 " Documentation
@@ -189,7 +184,6 @@ autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType ejs set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setl omnifunc=jscomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -265,7 +259,8 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
 set rtp+=~/.vim/bundle/vundle/
-set rtp+=/usr/lib/python3.3/site-packages/powerline/bindings/vim/
+" TODO: append vim powerline bindings to rtp
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 call vundle#rc()
 " Bundles
 Bundle 'gmarik/vundle'
@@ -300,11 +295,11 @@ Bundle 'LargeFile'
 Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-surround'
 " Bundle 'YankRing.vim'
-Bundle 'teramako/jscomplete-vim'
+" Bundle 'teramako/jscomplete-vim'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-markdown'
 Bundle 'mattn/calendar-vim'
-Bundle "pangloss/vim-javascript"
+Bundle "marijnh/tern_for_vim"
 " Bundle 'dbext.vim'
 " Bundle 'davidhalter/jedi-vim'
 " Bundle 'joonty/vdebug.git'
