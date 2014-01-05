@@ -105,6 +105,9 @@ let g:user_emmet_mode='inv'
 let g:use_emmet_complete_tag = 1
 " let g:user_zen_leader_key = '<c-y>'
 let g:user_emmet_expandabbr_key='<C-e>'
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 " pymode settings
 let g:pymode_rope = 0
 " Documentation
@@ -125,6 +128,8 @@ let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
+" nerdtree tabs
+let g:nerdtree_tabs_open_on_console_startup=1
 
 " remove trailing whitespace
 autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -139,7 +144,6 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 " Git commits.
 autocmd FileType gitcommit setlocal spell
-
 
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <C-b> :NERDTreeToggle<CR>
@@ -191,6 +195,9 @@ nnoremap <silent> <C-Up> :-m.<CR>k
 nnoremap ;; A;<Esc>
 " add a comma ',' at the end of the line
 nnoremap ;, A,<Esc>
+" smooth scroll bindings for terryma/vim-smooth-scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 " keep search match or last edit jumps in the moddle of the window
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -211,7 +218,7 @@ set completeopt=menuone,menu,longest,preview
 
 set rtp+=~/.vim/bundle/vundle/
 " TODO: append vim powerline bindings to rtp
-set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+" set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 call pathogen#helptags()
 call pathogen#infect()
 call vundle#rc()
@@ -230,8 +237,11 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'mhinz/vim-signify'
 Bundle 'EasyGrep'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'terryma/vim-expand-region'
+Bundle 'terryma/vim-smooth-scroll'
 " Bundle 'DBGPavim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'bling/vim-airline'
 " Bundle 'altercation/vim-colors-solarized'
 " Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jelera/vim-javascript-syntax'
@@ -239,7 +249,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'koron/nyancat-vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'docunext/closetag.vim'
-Bundle 'stephenmckinney/vim-solarized-powerline'
+" Bundle 'stephenmckinney/vim-solarized-powerline'
 Bundle 'gregsexton/MatchTag'
 Bundle 'szw/vim-dict'
 Bundle 'tpope/vim-abolish'
@@ -247,7 +257,6 @@ Bundle 'tpope/vim-repeat'
 " Bundle 'tpope/vim-sleuth'
 Bundle 'LargeFile'
 " Bundle 'TwitVim'
-" Bundle 'spf13/PIV'
 Bundle 'mattn/emmet-vim'
 Bundle 'tpope/vim-surround'
 " Bundle 'YankRing.vim'
@@ -257,6 +266,5 @@ Bundle 'tpope/vim-markdown'
 Bundle 'mattn/calendar-vim'
 Bundle "marijnh/tern_for_vim"
 Bundle 'Keithbsmiley/investigate.vim'
-" Bundle 'dbext.vim'
 " Bundle 'davidhalter/jedi-vim'
 " Bundle 'joonty/vdebug.git'
